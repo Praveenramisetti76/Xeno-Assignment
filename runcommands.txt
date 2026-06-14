@@ -1,0 +1,8 @@
+cd backend
+npm start
+
+cd channel-service
+npm start
+
+cd frontend
+npm run dev
