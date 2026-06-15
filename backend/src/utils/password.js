@@ -1,19 +1,14 @@
-/**
- * Estimates password strength score from 0 to 4.
- * @param {string} password - The password string.
- * @returns {number} Strength score.
- */
-function getPasswordStrength(password) {
-  if (typeof password !== 'string') return 0;
-  let score = 0;
-  if (!password) return score;
-  if (password.length >= 8) score++;
-  if (/[A-Z]/.test(password)) score++;
-  if (/[0-9]/.test(password)) score++;
-  if (/[^A-Za-z0-9]/.test(password)) score++;
-  return Math.min(score, 4);
+const getPasswordStrength = require('./password').getPasswordStrength;
+
+function hashPassword(password) {
+  return 'hashed_' + Buffer.from(password).toString('hex');
+}
+
+function comparePassword(password, hashed) {
+  return hashPassword(password) === hashed;
 }
 
 module.exports = {
-  getPasswordStrength
+  hashPassword,
+  comparePassword
 };
