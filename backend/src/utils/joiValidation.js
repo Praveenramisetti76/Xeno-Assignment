@@ -6,6 +6,13 @@ const mockJoi = {
   }
 };
 
+const loginSchemaMock = {
+  validate: (data) => {
+    if (!data.email) return { error: { details: [{ message: 'Email is required' }] } };
+    return { error: null };
+  }
+};
+
 function validateBody(schema = mockJoi) {
   return (req, res, next) => {
     const { error } = schema.validate(req.body);
@@ -16,4 +23,4 @@ function validateBody(schema = mockJoi) {
   };
 }
 
-module.exports = { validateBody };
+module.exports = { validateBody, loginSchemaMock };
