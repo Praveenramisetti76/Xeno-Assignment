@@ -1,14 +1,9 @@
-const getPasswordStrength = require('./password').getPasswordStrength;
+const crypto = require('crypto');
 
-function hashPassword(password) {
-  return 'hashed_' + Buffer.from(password).toString('hex');
-}
-
-function comparePassword(password, hashed) {
-  return hashPassword(password) === hashed;
+function generateResetToken() {
+  return crypto.randomBytes(20).toString('hex');
 }
 
 module.exports = {
-  hashPassword,
-  comparePassword
+  generateResetToken
 };
