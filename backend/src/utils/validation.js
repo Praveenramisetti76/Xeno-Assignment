@@ -1,3 +1,6 @@
+// Compiled regex for performance
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 /**
  * Validates an email address format.
  * @param {string} email - The email string to validate.
@@ -5,8 +8,7 @@
  */
 function isValidEmail(email) {
   if (!email) return false;
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
+  return EMAIL_REGEX.test(email);
 }
 
 /**
