@@ -6,4 +6,6 @@ function compileTemplate(html, variables) {
   return compiled;
 }
 
-module.exports = { compileTemplate };
+const welcomeTemplate = '<h1>Welcome, {{name}}!</h1><p>Thanks for joining Xeno.</p>';
+
+module.exports = { compileTemplate, welcomeTemplate };
