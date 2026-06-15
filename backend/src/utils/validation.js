@@ -1,11 +1,19 @@
-// Email validation utility
+/**
+ * Validates an email address format.
+ * @param {string} email - The email string to validate.
+ * @returns {boolean} True if email format is valid, false otherwise.
+ */
 function isValidEmail(email) {
   if (!email) return false;
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
 
-// Phone format utility (US standard)
+/**
+ * Formats a 10-digit phone number.
+ * @param {string} phone - The phone string to format.
+ * @returns {string|null} Formatted phone number or null.
+ */
 function formatPhoneNumber(phone) {
   const cleaned = ('' + phone).replace(/\D/g, '');
   const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
