@@ -1,11 +1,14 @@
 const jwtMock = {
   sign: (payload, secret, options) => {
-    return 'mock_jwt_token_' + Buffer.from(JSON.stringify(payload)).toString('base64');
+    const tokenPayload = { ...payload, exp: Date.now() + 3600000 };
+    return 'mock_jwt_token_' + Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
   },
   verify: (token, secret) => {
     if (!token.startsWith('mock_jwt_token_')) throw new Error('Invalid Token');
     const base64 = token.replace('mock_jwt_token_', '');
-    return JSON.parse(Buffer.from(base64, 'base64').toString('ascii'));
+    const decoded = JSON.parse(Buffer.from(base64, 'base64').toString('ascii'));
+    if (decoded.exp < Date.now()) throw new Error('Token Expired');
+    return decoded;
   }
 };
 
