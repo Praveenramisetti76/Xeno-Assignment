@@ -5,6 +5,11 @@ An AI-native mini CRM that lets marketers run data-driven campaigns through natu
 ![Architecture Diagram](SYSTEM_DESIGN.md)
 
 ---
+<img width="1918" height="977" alt="image" src="https://github.com/user-attachments/assets/f95f51db-3561-44a4-beeb-43142d1a4917" />
+<img width="1918" height="977" alt="image" src="https://github.com/user-attachments/assets/cbf8e318-95f6-4e53-86a6-c46bd0c55c44" />
+<img width="1918" height="972" alt="image" src="https://github.com/user-attachments/assets/a76d2f14-ada1-45cd-be48-49d2296e0d28" />
+
+
 
 ## Table of Contents
 
